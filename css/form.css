@@ -13,6 +13,9 @@ body{
     background-color: #c3cfe2;
 /* background: linear-gradient(135deg, #f5f7fa, #c3cfe2); */
 }
+div{
+    width: 100%;
+}
 #main{
     width: 70%;
     /* height: 100%; */
@@ -92,6 +95,9 @@ button{
     }
 }
 
+.toggleSubSectionBtn>div{
+    width: auto;
+}
 
 #delItem {
     display: none;
@@ -113,7 +119,6 @@ button{
     color: cadetblue;
     margin: 20px 10px;
     font-size: large;
-
     &:hover{
         text-decoration: underline;
     }
@@ -137,6 +142,7 @@ i{
 .skillContainer div{
     display: flex;
     align-items: center;
+    width: 25%;
 }
 
 .skillContainer div i{

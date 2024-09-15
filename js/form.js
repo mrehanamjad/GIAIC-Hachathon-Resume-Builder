@@ -1,7 +1,7 @@
 "use strict";
 let educationIds = 1;
 let workExperienceIds = 1;
-// toggle toggleSubSection Visibility using Event Delegation
+// toggle toggleSubSection Visibility
 function toggleSubSection(dotContainerClass) {
     const elContainer = document.querySelector(dotContainerClass);
     elContainer.addEventListener("click", function (e) {
@@ -48,106 +48,18 @@ function toggleSubSection(dotContainerClass) {
         }
     });
 }
-// Adding one more education
-function addOneMoreEducation() {
-    const eduContainer = document.querySelector(".educationSectionContainer");
-    const addOneMoreEducationBtn = document.querySelector("#education .addSectionBtn");
-    addOneMoreEducationBtn.addEventListener("click", () => {
-        ++educationIds;
-        eduContainer.insertAdjacentHTML("beforeend", `
-<div class="sectionIn educationIn">
-  <button type="button" class="toggleSubSectionBtn">
-  <span>(not specified)</span>
-      <div>
-          <i class="fa-solid fa-trash" id="delItem"></i>
-          <i class="fa-solid fa-chevron-down"></i>
-      </div>
-  </button>
-
-  <div class="educationSubSection disappear" id="education${educationIds}">
-      <div class="flex">
-          <div class="inputContainer">
-              <label for="qualification">Degree or Qualification</label>
-              <input type="text" id="qualification" name="qualification">
-          </div>
-          <div class="inputContainer">
-              <label for="institutionName">Institution Name</label>
-              <input type="text" id="institutionName" name="institutionName">
-          </div>
-          <div class="inputContainer">
-              <label for="educationStartAndEndDate">Start & End Date</label>
-              <input type="text" id="educationStartAndEndDate" name="educationStartAndEndDate"
-                  placeholder="e.g. 2020-2024">
-          </div>
-      </div>
-      <div class="inputContainer">
-          <label for="educationDescription">Description</label>
-          <textarea type="text" id="educationDescription" name="educationDescription"
-              placeholder="Any honors or awards received"></textarea>
-      </div>
-  </div>
-</div>
-    `);
-    });
-}
-function addOneMoreWorkExperience() {
-    const eduContainer = document.querySelector(".workExperienceSectionContainer");
-    const addOneMoreEducationBtn = document.querySelector("#workExperience .addSectionBtn");
-    addOneMoreEducationBtn.addEventListener("click", () => {
-        ++workExperienceIds;
-        eduContainer.insertAdjacentHTML("beforeend", `
-<div class="sectionIn workIn">
-  <button type="button" class="toggleSubSectionBtn">
-  <span>(not specified)</span>
-      <div>
-          <i class="fa-solid fa-trash" id="delItem"></i>
-          <i class="fa-solid fa-chevron-down"></i>
-      </div>
-  </button>
-
-  <div class="workSubSection disappear" id="workExperience${workExperienceIds}">
-      <div class="flex">
-          <div class="inputContainer">
-              <label for="jobTitle">Job Title</label>
-              <input type="text" id="jobTitle" name="jobTitle">
-          </div>
-          <div class="inputContainer">
-              <label for="companyName">Company Name</label>
-              <input type="text" id="companyName" name="companyName">
-          </div>
-          <div class="inputContainer">
-              <label for="jobStartAndEndDate">Start & End Date</label>
-              <input type="text" id="jobStartAndEndDate" name="jobStartAndEndDate"
-                  placeholder="e.g. 2020-2024">
-          </div>
-      </div>
-      <div class="inputContainer">
-          <label for="jobDescription">Description</label>
-          <textarea type="text" id="jobDescription" name="jobDescription"
-              placeholder="Key Responsibilities and Achievements"></textarea>
-      </div>
-  </div>
-</div>
-    `);
-    });
-}
-function addSkill() {
-    const skillContainer = document.querySelector(".skillContainer");
-    const addSkillBtn = document.querySelector("#skills .addSectionBtn");
-    addSkillBtn.addEventListener("click", () => {
-        skillContainer.insertAdjacentHTML("beforeend", `
-  <div>
-      <input type="text" name="skill" id="skill" class="smallInput">
-      <i class="fa-solid fa-circle-xmark"></i>
-  </div>
-      `);
+function addASection(hashMainSectionId, dotSectionContainerClass, SectionHtml) {
+    const Container = document.querySelector(dotSectionContainerClass);
+    const addBtn = document.querySelector(`${hashMainSectionId} .addSectionBtn`);
+    addBtn.addEventListener("click", () => {
+        Container.insertAdjacentHTML("beforeend", SectionHtml);
     });
 }
 function removeSkill() {
     const skillContainer = document.querySelector(".skillContainer");
-    skillContainer.addEventListener('click', (e) => {
+    skillContainer.addEventListener("click", (e) => {
         const target = e.target;
-        if (target.classList.contains('fa-circle-xmark'))
+        if (target.classList.contains("fa-circle-xmark"))
             target.parentElement?.remove();
     });
 }
@@ -180,14 +92,173 @@ function getFormData() {
                 jobDescription: formData.getAll("jobDescription"),
             },
             skill: formData.getAll("skill"),
+            courses: {
+                courseTitle: formData.getAll("courseTitle"),
+                courseInstitutionName: formData.getAll("courseInstitutionName"),
+                courseCompletionDate: formData.getAll("courseCompletionDate"),
+                courseDescription: formData.getAll("courseDescription"),
+            },
+            projects: {
+                projectTitle: formData.getAll("projectTitle"),
+                technologyUsed: formData.getAll("technologyUsed"),
+                projectGithubLink: formData.getAll("projectGithubLink"),
+                projectWebsiteLink: formData.getAll("projectWebsiteLink"),
+                projectDescription: formData.getAll("projectDescription"),
+            },
         };
         console.log(formValues);
     });
 }
 toggleSubSection(".educationSectionContainer");
 toggleSubSection(".workExperienceSectionContainer");
-addOneMoreEducation();
-addSkill();
+toggleSubSection(".courseSectionContainer");
+toggleSubSection(".projectSectionContainer");
 removeSkill();
-addOneMoreWorkExperience();
+addASection("#education", ".educationSectionContainer", `
+  <div class="sectionIn educationIn">
+  <button type="button" class="toggleSubSectionBtn">
+  <span>(not specified)</span>
+      <div>
+          <i class="fa-solid fa-trash" id="delItem"></i>
+          <i class="fa-solid fa-chevron-down"></i>
+      </div>
+  </button>
+
+  <div class="educationSubSection disappear">
+      <div class="flex">
+          <div class="inputContainer">
+              <label for="qualification">Degree or Qualification</label>
+              <input type="text" id="qualification" name="qualification">
+          </div>
+          <div class="inputContainer">
+              <label for="institutionName">Institution Name</label>
+              <input type="text" id="institutionName" name="institutionName">
+          </div>
+          <div class="inputContainer">
+              <label for="educationStartAndEndDate">Start & End Date</label>
+              <input type="text" id="educationStartAndEndDate" name="educationStartAndEndDate"
+                  placeholder="e.g. May 2020 - Jan 2022">
+          </div>
+      </div>
+      <div class="inputContainer">
+          <label for="educationDescription">Description</label>
+          <textarea type="text" id="educationDescription" name="educationDescription"
+              placeholder="Any honors or awards received"></textarea>
+      </div>
+  </div>
+</div>
+  `);
+addASection("#workExperience", ".workExperienceSectionContainer", `
+  <div class="sectionIn workIn">
+    <button type="button" class="toggleSubSectionBtn">
+    <span>(not specified)</span>
+        <div>
+            <i class="fa-solid fa-trash" id="delItem"></i>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </button>
+  
+    <div class="workSubSection disappear" id="workExperience${workExperienceIds}">
+        <div class="flex">
+            <div class="inputContainer">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle" name="jobTitle">
+            </div>
+            <div class="inputContainer">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName">
+            </div>
+            <div class="inputContainer">
+                <label for="jobStartAndEndDate">Start & End Date</label>
+                <input type="text" id="jobStartAndEndDate" name="jobStartAndEndDate"
+                    placeholder="e.g. May 2020 - Jan 2022">
+            </div>
+        </div>
+        <div class="inputContainer">
+            <label for="jobDescription">Description</label>
+            <textarea type="text" id="jobDescription" name="jobDescription"
+                placeholder="Key Responsibilities and Achievements"></textarea>
+        </div>
+    </div>
+  </div>
+      `);
+addASection("#skills", ".skillContainer", `
+  <div>
+      <input type="text" name="skill" id="skill" class="smallInput">
+      <i class="fa-solid fa-circle-xmark"></i>
+  </div>
+   `);
+addASection("#courses", ".courseSectionContainer", `
+  <div class="sectionIn courseIn">
+    <button type="button" class="toggleSubSectionBtn">
+        <span>(not specified)</span>
+        <div>
+            <i class="fa-solid fa-trash" id="delItem"></i>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </button>
+  
+    <div class="courseSubSection disappear" >
+        <div class="flex">
+            <div class="inputContainer">
+                <label for="courseTitle">course</label>
+                <input type="text" id="courseTitle" name="courseTitle">
+            </div>
+            <div class="inputContainer">
+                <label for="courseInstitutionName">institute/Plateform</label>
+                <input type="text" id="courseInstitutionName" name="courseInstitutionName">
+            </div>
+            <div class="inputContainer">
+                <label for="courseCompletionDate">Completion Date</label>
+                <input type="text" id="courseCompletionDate" name="courseCompletionDate"
+                    placeholder="e.g. May 2023">
+            </div>
+        </div>
+        <div class="inputContainer">
+            <label for="courseDescription">Description (optional)</label>
+            <textarea type="text" id="courseDescription" name="courseDescription"
+                placeholder="A brief description of the course or certification"></textarea>
+        </div>
+    </div>
+  </div>
+      `);
+addASection("#projects", ".projectSectionContainer", `
+  <div class="sectionIn projectIn">
+    <button type="button" class="toggleSubSectionBtn">
+        <span>(not specified)</span>
+        <div>
+            <i class="fa-solid fa-trash" id="delItem"></i>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </button>
+  
+    <div class="projectSubSection disappear">
+        <div class="flex">
+            <div class="inputContainer">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" id="projectTitle" name="projectTitle">
+            </div>
+            <div class="inputContainer">
+                <label for="technologyUsed">Technologies Used</label>
+                <input type="text" id="technologyUsed" name="technologyUsed"  placeholder="Keep separated by comma (,)">
+            </div>
+        </div>
+        <div class="flex">
+            <div class="inputContainer">
+                <label for="projectGithubLink">Github Link</label>
+                <input type="text" id="projectGithubLink" name="projectGithubLink">
+            </div>
+            <div class="inputContainer">
+                <label for="projectWebsiteLink">Website Link</label>
+                <input type="text" id="projectWebsiteLink" name="projectWebsiteLink" >
+            </div>
+        </div>
+        <div class="inputContainer">
+            <label for="projectDescription">Description</label>
+            <textarea type="text" id="projectDescription" name="projectDescription"
+               ></textarea>
+        </div>
+    </div>
+  </div>
+        `);
 getFormData();
