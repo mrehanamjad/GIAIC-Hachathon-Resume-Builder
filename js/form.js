@@ -1,6 +1,4 @@
 "use strict";
-let educationIds = 1;
-let workExperienceIds = 1;
 // toggle toggleSubSection Visibility
 function toggleSubSection(dotContainerClass) {
     const elContainer = document.querySelector(dotContainerClass);
@@ -63,8 +61,8 @@ function removeSkill() {
             target.parentElement?.remove();
     });
 }
-const mainForm = document.querySelector("#mainForm");
 function getFormData() {
+    const mainForm = document.querySelector("#mainForm");
     mainForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(mainForm);
@@ -107,6 +105,8 @@ function getFormData() {
             },
         };
         console.log(formValues);
+        const formDataStr = JSON.stringify(formValues);
+        localStorage.setItem('resumeBuilderFormData', formDataStr);
     });
 }
 toggleSubSection(".educationSectionContainer");
@@ -157,8 +157,7 @@ addASection("#workExperience", ".workExperienceSectionContainer", `
             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </button>
-  
-    <div class="workSubSection disappear" id="workExperience${workExperienceIds}">
+    <div class="workExperienceSubSection disappear">
         <div class="flex">
             <div class="inputContainer">
                 <label for="jobTitle">Job Title</label>

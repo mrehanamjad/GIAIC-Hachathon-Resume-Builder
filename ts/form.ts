@@ -1,5 +1,53 @@
-let educationIds = 1;
-let workExperienceIds = 1;
+// interfaces:
+interface Education {
+  qualification: string[];
+  institutionName: string[];
+  educationStartAndEndDate: string[];
+  educationDescription: string[];
+}
+
+interface WorkExperience {
+  jobTitle: string[];
+  companyName: string[];
+  jobStartAndEndDate: string[];
+  jobDescription: string[];
+}
+
+interface Courses {
+  courseTitle: string[];
+  courseInstitutionName: string[];
+  courseCompletionDate: string[];
+  courseDescription: string[];
+}
+
+interface Projects {
+  projectTitle: string[];
+  technologyUsed: string[];
+  projectGithubLink: string[];
+  projectWebsiteLink: string[];
+  projectDescription: string[];
+}
+
+interface FormValues {
+  firstName: string | null;
+  lastName: string | null;
+  jobTitleApplyFor: string | null;
+  aboutMe: string | null;
+  email: string | null;
+  phone: string | null;
+  address: string | null;
+  linkedin: string | null;
+  personalWebsite: string | null;
+  github: string | null;
+  education: Education;
+  workExperience: WorkExperience;
+  skill: string[];
+  courses: Courses;
+  projects: Projects;
+}
+
+
+
 // toggle toggleSubSection Visibility
 function toggleSubSection(dotContainerClass: string) {
   const elContainer = document.querySelector(
@@ -91,54 +139,58 @@ function removeSkill() {
   });
 }
 
-const mainForm = document.querySelector("#mainForm") as HTMLFormElement;
-function getFormData() {
-  mainForm.addEventListener("submit", (e) => {
+function getFormData(): void {
+  const mainForm = document.querySelector("#mainForm") as HTMLFormElement;
+
+  mainForm.addEventListener("submit", (e: Event) => {
     e.preventDefault();
     const formData = new FormData(mainForm);
 
-    const formValues = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      jobTitleApplyFor: formData.get("jobTitleApplyFor"),
-      aboutMe: formData.get("aboutMe"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      address: formData.get("address"),
-      linkedin: formData.get("linkedin"),
-      personalWebsite: formData.get("personalWebsite"),
-      github: formData.get("github"),
+    const formValues: FormValues = {
+      firstName: formData.get("firstName") as string | null,
+      lastName: formData.get("lastName") as string | null,
+      jobTitleApplyFor: formData.get("jobTitleApplyFor") as string | null,
+      aboutMe: formData.get("aboutMe") as string | null,
+      email: formData.get("email") as string | null,
+      phone: formData.get("phone") as string | null,
+      address: formData.get("address") as string | null,
+      linkedin: formData.get("linkedin") as string | null,
+      personalWebsite: formData.get("personalWebsite") as string | null,
+      github: formData.get("github") as string | null,
       education: {
-        qualification: formData.getAll("qualification"),
-        institutionName: formData.getAll("institutionName"),
-        educationStartAndEndDate: formData.getAll("educationStartAndEndDate"),
-        educationDescription: formData.getAll("educationDescription"),
+        qualification: formData.getAll("qualification") as string[],
+        institutionName: formData.getAll("institutionName") as string[],
+        educationStartAndEndDate: formData.getAll("educationStartAndEndDate") as string[],
+        educationDescription: formData.getAll("educationDescription") as string[],
       },
       workExperience: {
-        jobTitle: formData.getAll("jobTitle"),
-        companyName: formData.getAll("companyName"),
-        jobStartAndEndDate: formData.getAll("jobStartAndEndDate"),
-        jobDescription: formData.getAll("jobDescription"),
+        jobTitle: formData.getAll("jobTitle") as string[],
+        companyName: formData.getAll("companyName") as string[],
+        jobStartAndEndDate: formData.getAll("jobStartAndEndDate") as string[],
+        jobDescription: formData.getAll("jobDescription") as string[],
       },
-      skill: formData.getAll("skill"),
+      skill: formData.getAll("skill") as string[],
       courses: {
-        courseTitle: formData.getAll("courseTitle"),
-        courseInstitutionName: formData.getAll("courseInstitutionName"),
-        courseCompletionDate: formData.getAll("courseCompletionDate"),
-        courseDescription: formData.getAll("courseDescription"),
+        courseTitle: formData.getAll("courseTitle") as string[],
+        courseInstitutionName: formData.getAll("courseInstitutionName") as string[],
+        courseCompletionDate: formData.getAll("courseCompletionDate") as string[],
+        courseDescription: formData.getAll("courseDescription") as string[],
       },
       projects: {
-        projectTitle: formData.getAll("projectTitle"),
-        technologyUsed: formData.getAll("technologyUsed"),
-        projectGithubLink: formData.getAll("projectGithubLink"),
-        projectWebsiteLink: formData.getAll("projectWebsiteLink"),
-        projectDescription: formData.getAll("projectDescription"),
+        projectTitle: formData.getAll("projectTitle") as string[],
+        technologyUsed: formData.getAll("technologyUsed") as string[],
+        projectGithubLink: formData.getAll("projectGithubLink") as string[],
+        projectWebsiteLink: formData.getAll("projectWebsiteLink") as string[],
+        projectDescription: formData.getAll("projectDescription") as string[],
       },
     };
 
     console.log(formValues);
+    const formDataStr = JSON.stringify(formValues);
+    localStorage.setItem('resumeBuilderFormData', formDataStr);
   });
 }
+
 
 toggleSubSection(".educationSectionContainer");
 toggleSubSection(".workExperienceSectionContainer");
@@ -196,8 +248,7 @@ addASection(
             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </button>
-  
-    <div class="workSubSection disappear" id="workExperience${workExperienceIds}">
+    <div class="workExperienceSubSection disappear">
         <div class="flex">
             <div class="inputContainer">
                 <label for="jobTitle">Job Title</label>

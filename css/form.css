@@ -179,5 +179,8 @@ i{
     .flex{
         flex-direction: column;
     }
+    h2{
+        font-size: x-large;
+    }
 }
 
