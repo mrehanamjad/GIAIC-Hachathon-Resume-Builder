@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // toggle toggleSubSection Visibility
 function toggleSubSection(dotContainerClass) {
     const elContainer = document.querySelector(dotContainerClass);
@@ -69,6 +70,7 @@ function getFormData() {
         const formValues = {
             firstName: formData.get("firstName"),
             lastName: formData.get("lastName"),
+            photo: formData.get('photo'),
             jobTitleApplyFor: formData.get("jobTitleApplyFor"),
             aboutMe: formData.get("aboutMe"),
             email: formData.get("email"),

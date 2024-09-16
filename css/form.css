@@ -11,21 +11,16 @@ html,body{
 }
 body{
     background-color: #c3cfe2;
-/* background: linear-gradient(135deg, #f5f7fa, #c3cfe2); */
 }
 div{
     width: 100%;
 }
 #main{
     width: 70%;
-    /* height: 100%; */
     margin: 2rem auto;
     background-color: white;
     border-radius: 1.6rem;
-    /* display: flex; */
-    /* justify-content: center; */
     padding: 2rem;
-    /* flex-direction: column; */
 }
 
 h2{
@@ -50,7 +45,7 @@ input,textarea{
     padding: 8px;
     outline: none;
     border: 1.5px solid transparent;
-    font-size: large;
+    font-size: medium;
     color: rgba(0, 0, 0, 0.605);
     border-radius: 7px;
     background-color: cadetblue;
@@ -88,7 +83,6 @@ button{
     font-size: larger;
     display: flex;
     justify-content: space-between;
-    /* background-color: #e8f0fe; */
 
     &:hover #delItem{
         display: inline;
@@ -109,6 +103,7 @@ button{
     display: flex;
     flex-direction: row;
     gap: 8px;
+    align-items: center;
 }
 
 .disappear{
@@ -154,7 +149,6 @@ i{
 }
 
 .smallInput{
-    /* min-width: ; */
     width: 80%;
     font-size: large;
     margin-top: 4px;
