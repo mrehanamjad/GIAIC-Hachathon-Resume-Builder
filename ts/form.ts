@@ -31,6 +31,7 @@ interface Projects {
 interface FormValues {
   firstName: string | null;
   lastName: string | null;
+  photo: File | null;
   jobTitleApplyFor: string | null;
   aboutMe: string | null;
   email: string | null;
@@ -149,6 +150,7 @@ function getFormData(): void {
     const formValues: FormValues = {
       firstName: formData.get("firstName") as string | null,
       lastName: formData.get("lastName") as string | null,
+      photo: formData.get('photo') as File | null,
       jobTitleApplyFor: formData.get("jobTitleApplyFor") as string | null,
       aboutMe: formData.get("aboutMe") as string | null,
       email: formData.get("email") as string | null,

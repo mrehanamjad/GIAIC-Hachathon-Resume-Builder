@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // toggle toggleSubSection Visibility
 function toggleSubSection(dotContainerClass) {
     const elContainer = document.querySelector(dotContainerClass);
