@@ -139,67 +139,6 @@ function removeSkill() {
       target.parentElement?.remove();
   });
 }
-// function getFormData(): void {
-//   const mainForm = document.querySelector("#mainForm") as HTMLFormElement;
-
-//   mainForm.addEventListener("submit", (e: Event) => {
-//     e.preventDefault();
-//     const formData = new FormData(mainForm);
-
-//     const formValues: FormValues = {
-//       firstName: formData.get("firstName") as string | null,
-//       lastName: formData.get("lastName") as string | null,
-//       photo: formData.get("photo") as File | null,
-//       jobTitleApplyFor: formData.get("jobTitleApplyFor") as string | null,
-//       aboutMe: formData.get("aboutMe") as string | null,
-//       email: formData.get("email") as string | null,
-//       phone: formData.get("phone") as string | null,
-//       address: formData.get("address") as string | null,
-//       linkedin: formData.get("linkedin") as string | null,
-//       personalWebsite: formData.get("personalWebsite") as string | null,
-//       github: formData.get("github") as string | null,
-//       education: {
-//         qualification: formData.getAll("qualification") as string[],
-//         institutionName: formData.getAll("institutionName") as string[],
-//         educationStartAndEndDate: formData.getAll(
-//           "educationStartAndEndDate"
-//         ) as string[],
-//         educationDescription: formData.getAll(
-//           "educationDescription"
-//         ) as string[],
-//       },
-//       workExperience: {
-//         jobTitle: formData.getAll("jobTitle") as string[],
-//         companyName: formData.getAll("companyName") as string[],
-//         jobStartAndEndDate: formData.getAll("jobStartAndEndDate") as string[],
-//         jobDescription: formData.getAll("jobDescription") as string[],
-//       },
-//       skill: formData.getAll("skill") as string[],
-//       courses: {
-//         courseTitle: formData.getAll("courseTitle") as string[],
-//         courseInstitutionName: formData.getAll(
-//           "courseInstitutionName"
-//         ) as string[],
-//         courseCompletionDate: formData.getAll(
-//           "courseCompletionDate"
-//         ) as string[],
-//         courseDescription: formData.getAll("courseDescription") as string[],
-//       },
-//       projects: {
-//         projectTitle: formData.getAll("projectTitle") as string[],
-//         technologyUsed: formData.getAll("technologyUsed") as string[],
-//         projectGithubLink: formData.getAll("projectGithubLink") as string[],
-//         projectWebsiteLink: formData.getAll("projectWebsiteLink") as string[],
-//         projectDescription: formData.getAll("projectDescription") as string[],
-//       },
-//     };
-
-//     console.log(formValues);
-//     const formDataStr = JSON.stringify(formValues);
-//     localStorage.setItem("resumeBuilderFormData", formDataStr);
-//   });
-// }
-
 
 function convertToBase64(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -264,7 +203,9 @@ function getFormData(): void {
 
     console.log(formValues);
     localStorage.setItem("resumeBuilderFormData", JSON.stringify(formValues));
+    window.location.href = "./resume.html";
   });
+
 }
 
 function addEducationS(withoutClick: boolean = false) {

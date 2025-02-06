@@ -1,14 +1,12 @@
 "use strict";
 // import FormValues from "./interface.js";
 const formDataStr = localStorage.getItem("resumeBuilderFormData");
-let allFormDataJSON;
-if (formDataStr) {
-    allFormDataJSON = JSON.parse(formDataStr);
+if (!formDataStr) {
+    window.location.href = "./form.html";
 }
-if (allFormDataJSON) {
-    console.log(allFormDataJSON);
-    const formDataJSON = allFormDataJSON;
-    console.log(formDataJSON);
+if (formDataStr) {
+    const formDataJSON = JSON.parse(formDataStr);
+    document.querySelector('title').textContent = `Resume - ${formDataJSON.firstName} ${formDataJSON.lastName}`;
     // left : --------------------------------------------------------
     //setting first section:
     const imgC = document.querySelector("#img");
@@ -101,8 +99,14 @@ if (allFormDataJSON) {
     }
     document.querySelector("#printBtn").addEventListener("click", () => {
         const header = document.querySelector("header");
+        const navBar = document.querySelector(".navbar");
+        const footer = document.querySelector("footer");
         header.style.display = "none";
+        navBar.style.display = "none";
+        footer.style.display = "none";
         window.print();
         header.style.display = "block";
+        navBar.style.display = "block";
+        footer.style.display = "block";
     });
 }

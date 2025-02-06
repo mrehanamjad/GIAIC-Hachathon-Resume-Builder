@@ -23,6 +23,16 @@ div{
     padding: 2rem;
 }
 
+#mainH {
+    text-align: center;
+    color: cadetblue;
+    font-size: xx-large;
+    border: 2px solid cadetblue;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-bottom: 3rem;
+}
+
 h2{
     font-size: xx-large;
     color: cadetblue;
