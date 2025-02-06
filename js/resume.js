@@ -1,22 +1,21 @@
 "use strict";
 // import FormValues from "./interface.js";
-const formDataLocal = localStorage.getItem("resumeBuilderFormData");
+const formDataStr = localStorage.getItem("resumeBuilderFormData");
 let allFormDataJSON;
-if (formDataLocal) {
-    allFormDataJSON = JSON.parse(formDataLocal);
+if (formDataStr) {
+    allFormDataJSON = JSON.parse(formDataStr);
 }
 if (allFormDataJSON) {
     console.log(allFormDataJSON);
-    const formDataJSON = allFormDataJSON[0];
+    const formDataJSON = allFormDataJSON;
     console.log(formDataJSON);
     // left : --------------------------------------------------------
     //setting first section:
     const imgC = document.querySelector("#img");
-    imgC.children[1].textContent = `${formDataJSON.firstName} ${formDataJSON.firstName}`;
+    imgC.children[0].src = formDataJSON.photo;
+    imgC.children[1].textContent = `${formDataJSON.firstName} ${formDataJSON.lastName}`;
     imgC.children[3].textContent = `${formDataJSON.jobTitleApplyFor}`;
     // setting contact details
-    const github = "https://github.com/johndoe";
-    console.log(`${github ? "Hi" : "display:none;"}`);
     const detailC = document.querySelector("#details");
     detailC.innerHTML = `
     <h2>Details</h2>
@@ -88,4 +87,22 @@ if (allFormDataJSON) {
                 </div>
 `);
     }
+    if (formDataJSON.workExperience.jobTitle.length === 0) {
+        workExperienceSection.style.display = "none";
+    }
+    if (formDataJSON.education.qualification.length === 0) {
+        educationSection.style.display = "none";
+    }
+    if (formDataJSON.courses.courseTitle.length === 0) {
+        courseSection.style.display = "none";
+    }
+    if (formDataJSON.projects.projectTitle.length === 0) {
+        projectSection.style.display = "none";
+    }
+    document.querySelector("#printBtn").addEventListener("click", () => {
+        const header = document.querySelector("header");
+        header.style.display = "none";
+        window.print();
+        header.style.display = "block";
+    });
 }

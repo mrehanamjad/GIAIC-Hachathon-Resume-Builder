@@ -5,11 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume-Template #1</title>
-    <link id="stylesheet" rel="stylesheet" href="./css/resume.css">
+    <link rel="stylesheet" href="./css/resume.css">
+    <link rel="stylesheet" href="./css/navFoot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
+    <nav class="navbar container">
+        <div class="navbar-brand">
+            📄 ResumeGenius
+        </div>
+    </nav>
+    <header>
+        <a href="./form.html" id="editLink"><button id="editBtn">Edit Resume</button></a>
+        <button id="printBtn">Print Resume</button>
+    </header>
     <div id="mainBody">
         <div id="left">
             <div id="img">
@@ -140,8 +152,19 @@
 
     </div>
 
-    <script src="./js/resume.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ResumeGenius. All rights reserved.</p>
+            <p>Build By M.Rehan Amjad | <a href="https://www.linkedin.com/in/mrehanamjad/"><i class="fa-brands fa-linkedin"></i></a></p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
 
+    <script src="./js/resume.js"></script>
 </body>
 
 </html>

@@ -130,18 +130,29 @@ i{
     cursor: pointer;
 }
 
-.skillContainer{
-    display: flex;
+.skillContainer {
+    display: flex
+;
     flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
 }
-.skillContainer div{
-    display: flex;
+
+.skillContainer div {
+    display: flex
+;
     align-items: center;
-    width: 25%;
+    gap: 0.5rem;
+    background-color: #f7fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    width: auto;
 }
+
 
 .skillContainer div i{
     font-size: large;
+    margin-left: 5px;
 }
 
 .skillContainer div i:hover{
@@ -175,6 +186,9 @@ i{
     }
     h2{
         font-size: x-large;
+    }
+    .skillContainer div {
+        width: 100%;
     }
 }
 

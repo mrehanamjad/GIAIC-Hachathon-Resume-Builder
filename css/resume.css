@@ -1,137 +1,328 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-code{
-    font-family: 'Courier New', Courier, monospace;
-}
-
-h1{
-    font-size: larger;
-    margin: 6px 0;
-}
-
-h2{
-    font-size: 1.1rem;
-    color: #000000d4;
-}
-
-p, #right li, #right code{
-    color: rgba(46, 45, 45, 0.774);
-    font-size: 0.9rem;
-}
-
-hr{
-    padding: 0 20px;
-}
-
-#mainBody{
-    min-height: 100vh;
-    width: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Make children stretch to fill height */
-    background-color: rgb(31, 98, 31);
-    border-radius: 10px;
-    box-shadow: 0 0 15px black;
-}
-
-#left{
-    background-color: rgb(25, 57, 25);
-    min-height: 100%; /* Make it fill the container height */
-    width: 200px;
-    border-radius: 10px 0 0 10px;
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 16px;
-    padding-top: 48px;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
     color: white;
     gap: 20px;
 }
 
-#left #img{
+header button {
+    background-color: #193458;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+header button:hover {
+    background-color: #3261b8;
+}
+
+#mainBody {
+    min-height: 297mm; /* A4 height */
+    width: 210mm;     /* A4 width */
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Left Section Styles */
+#left {
+    width: 240px;
+    background-color: #1e3a8a;
+    padding: 2rem 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
     text-align: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#left #img img{
-    width: 80px;
+#img img {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
 }
 
-#left h2{
+#img h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+}
+
+#jobRoll {
+    font-family: inherit;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#details, #skillSection {
+    padding: 0.5rem 0;
+}
+
+#left h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+#left h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#left p, #left li, #left a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+#left a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#left a:hover {
     color: white;
 }
 
-#left ul{
-    padding: 6px 16px;
+#skillSection ul {
+    list-style: none;
 }
 
-#left p,#left li,#left a{
-    color: rgb(245 245 245 / 92%);
-    margin: 4px;
-    font-size: small;
+#skillSection li {
+    position: relative;
+    padding-left: 1.2rem;
 }
 
-#left code{
-    color: rgba(245, 245, 245, 0.916);
+#skillSection li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Right Section Styles */
+#right {
+    flex: 1;
+    padding: 2.5rem 2rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#right h1 {
+    font-size: 1.4rem;
+    color: #1e3a8a;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+#right h1::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background-color: #1e3a8a;
+}
+
+#right h2 {
+    font-size: 1.1rem;
+    color: #334155;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+#right p, #right li {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+#right code {
+    font-family: inherit;
+    color: #6b7280;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
-#details{
-    padding-top: 10px;
+#right div {
+    padding: 0.5rem 0;
+}
+
+#projectSection a {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    margin: 0.5rem 1rem 0.5rem 0;
+    background-color: #1e3a8a;
     color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
 }
 
-
-#left #last{
-    flex: 1 1 0%; /* To push other content to the top */
-    width: 20px;
-    min-height: 20px;
+#projectSection a:hover {
+    background-color: #1e40af;
 }
 
-#right{
-    height: 100%; /* Make it fill the container height */
-    width: 600px;
-    border-radius: 0 10px 10px 0;
-    display: flex;
-    flex-direction: column;
-    padding: 34px;
-    padding-top: 30px;
-    color: black;
-    background-color: whitesmoke;
-    gap: 16px;
-    text-align: justify;
+#workExperienceSection p li {
+    position: relative;
+    padding-left: 1.2rem;
+    list-style: none;
 }
 
-#right div{
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
+#workExperienceSection p li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1e3a8a;
 }
 
-#right div *{
-    padding: 2px 3px;
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 10px;
+    }
+
+    #mainBody {
+        width: 100%;
+        min-height: auto;
+    }
 }
 
-b{
-    padding: 0 !important;
-    margin: 0;
+@media screen and (max-width: 768px) {
+    #mainBody {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    #left {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+        padding: 2rem 1.5rem;
+    }
+
+    #right {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        padding: 2rem 1.5rem;
+    }
+
+    #img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #img h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    #mainBody {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #left, #right {
+        padding: 1.5rem 1rem;
+        border-radius: 0;
+    }
+
+    #right h1 {
+        font-size: 1.3rem;
+    }
+
+    #right h2 {
+        font-size: 1rem;
+    }
+
+    #right p, #right li, #left p, #left li {
+        font-size: 0.9rem;
+    }
+
+    #projectSection a {
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+    
+    #mainBody {
+        box-shadow: none;
+        border-radius: 0;
+        min-height: 100%;
+        width: 100%;
+    }
+
+    #left {
+        width: 30%;
+    }
+
+    #right {
+        width: 70%;
+    }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "giaic-hachathon-resume-builder",
+  "version": "1.0.0",
+  "description": "User friendly resume builder",
+  "homepage": "https://github.com/mrehanamjad/GIAIC-Hachathon-Resume-Builder#readme",
+  "bugs": {
+    "url": "https://github.com/mrehanamjad/GIAIC-Hachathon-Resume-Builder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrehanamjad/GIAIC-Hachathon-Resume-Builder.git"
+  },
+  "license": "ISC",
+  "author": "mrehanamjad",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem ;
+    background-color: rgb(233, 251, 252);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: cadetblue;
+}
+
+ /* Footer */
+ .footer {
+    background-color: rgb(233, 251, 252);
+    padding: 40px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: cadetblue;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: black;
+}
