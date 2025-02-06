@@ -10,7 +10,7 @@ if (formDataStr) {
     // left : --------------------------------------------------------
     //setting first section:
     const imgC = document.querySelector("#img");
-    imgC.children[0].src = formDataJSON.photo;
+    imgC.children[0].src = formDataJSON ? formDataJSON.photo : "./image.png";
     imgC.children[1].textContent = `${formDataJSON.firstName} ${formDataJSON.lastName}`;
     imgC.children[3].textContent = `${formDataJSON.jobTitleApplyFor}`;
     // setting contact details
@@ -103,7 +103,6 @@ if (formDataStr) {
         const footer = document.querySelector("footer");
         header.style.display = "none";
         navBar.style.display = "none";
-        footer.style.display = "none";
         window.print();
         header.style.display = "block";
         navBar.style.display = "block";

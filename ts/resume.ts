@@ -62,7 +62,7 @@ if (formDataStr) {
   // left : --------------------------------------------------------
   //setting first section:
   const imgC = document.querySelector("#img") as HTMLDivElement;
-  (imgC.children[0] as HTMLImageElement).src = formDataJSON.photo as string;
+  (imgC.children[0] as HTMLImageElement).src = formDataJSON ? formDataJSON.photo as string : "./image.png";
   imgC.children[1].textContent = `${formDataJSON.firstName} ${formDataJSON.lastName}`;
   imgC.children[3].textContent = `${formDataJSON.jobTitleApplyFor}`;
 

@@ -298,7 +298,6 @@ function getFormD() {
 }
 const formDataJSON = getFormD();
 if (formDataJSON) {
-
     function setPersonalInfo() {
         const personalFields = ["firstName", "lastName", "jobTitleApplyFor", "email", "phone", "address", "github", "linkedin", "personalWebsite",
         ];
@@ -345,5 +344,4 @@ if (formDataJSON) {
     setSkillSection();
     setSectionTopText();
     document.querySelector("#sBtn").textContent = "Update Resume";
-    document.querySelector("#mainH").textContent = "Edit Resume";
 }
