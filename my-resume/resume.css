@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    gap: 20px;
+}
+
+header button {
+    background-color: #193458;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+header button:hover {
+    background-color: #3261b8;
+}
+
+#mainBody {
+    min-height: 297mm; /* A4 height */
+    width: 210mm;     /* A4 width */
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Left Section Styles */
+#left {
+    width: 240px;
+    background-color: #1e3a8a;
+    padding: 2rem 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+}
+
+#img h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+}
+
+#jobRoll {
+    font-family: inherit;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#details, #skillSection {
+    padding: 0.5rem 0;
+}
+
+#left h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+#left h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#left p, #left li, #left a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+#left a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#left a:hover {
+    color: white;
+}
+
+#skillSection ul {
+    list-style: none;
+}
+
+#skillSection li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+#skillSection li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Right Section Styles */
+#right {
+    flex: 1;
+    padding: 2.5rem 2rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#right h1 {
+    font-size: 1.4rem;
+    color: #1e3a8a;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+#right h1::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background-color: #1e3a8a;
+}
+
+#right h2 {
+    font-size: 1.1rem;
+    color: #334155;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+#right p, #right li {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+#right code {
+    font-family: inherit;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+#right div {
+    padding: 0.5rem 0;
+}
+
+#projectSection a {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    margin: 0.5rem 1rem 0.5rem 0;
+    background-color: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+#projectSection a:hover {
+    background-color: #1e40af;
+}
+
+#workExperienceSection p li {
+    position: relative;
+    padding-left: 1.2rem;
+    list-style: none;
+}
+
+#workExperienceSection p li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1e3a8a;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 10px;
+    }
+
+    #mainBody {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mainBody {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    #left {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+        padding: 2rem 1.5rem;
+    }
+
+    #right {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        padding: 2rem 1.5rem;
+    }
+
+    #img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #img h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    #mainBody {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #left, #right {
+        padding: 1.5rem 1rem;
+        border-radius: 0;
+    }
+
+    #right h1 {
+        font-size: 1.3rem;
+    }
+
+    #right h2 {
+        font-size: 1rem;
+    }
+
+    #right p, #right li, #left p, #left li {
+        font-size: 0.9rem;
+    }
+
+    #projectSection a {
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+    
+    #mainBody {
+        box-shadow: none;
+        border-radius: 0;
+        min-height: 100%;
+        width: 100%;
+    }
+
+    #left {
+        width: 30%;
+    }
+
+    #right {
+        width: 70%;
+    }
+}
